@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Be</title>
+<meta name="description" content="One biology finding a morning, and the small act it suggests. Offline-first; nothing leaves your device unless you ask.">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#E8A317">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Be">
+<!-- height:100% resolves against the large viewport on iOS Safari while the
+     toolbars are showing, so the bottom of the app gets clipped — exactly where
+     the Today/Hive/You bar sits. dvh tracks the live viewport; the % rule stays
+     as the fallback for engines without dvh. Safe-area padding is deliberately
+     NOT applied here: app.html already pads for env(safe-area-inset-bottom)
+     itself, and doing it in both places leaves a doubled gap above the home
+     indicator. -->
+<style>html,body{margin:0;height:100%;height:100dvh;background:#FEFCF7;overscroll-behavior:none}iframe{position:fixed;inset:0;width:100%;height:100%;height:100dvh;border:0}noscript p{font:15px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;color:#201B10;padding:24px}</style>
+</head><body>
+<noscript><p>Be needs JavaScript to open. Nothing else is required — no account, no network after the first visit.</p></noscript>
+<iframe src="app.html" title="Be" allow="fullscreen"></iframe>
+<script>if('serviceWorker' in navigator&&location.protocol!=='file:'&&!location.hostname.includes('claudeusercontent')){navigator.serviceWorker.register('sw.js').catch(function(){});}</script>
+</body></html>

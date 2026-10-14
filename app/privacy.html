@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="referrer" content="no-referrer">
+<title>Be — what stays with you</title>
+<meta name="description" content="Be's data practices in plain words: what stays on your device, what can leave, and how to be forgotten.">
+<style>body{margin:0;background:#FEFCF7;color:#201B10;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}main{max-width:640px;margin:0 auto;padding:40px 24px 64px}h1{font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-weight:400;font-size:34px;line-height:1.1;margin:0 0 6px}h2{font-size:17px;font-weight:600;margin:28px 0 6px}p,li{margin:0 0 10px}ul{padding-left:22px}.sub{color:#6E6452;margin:0 0 22px}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#6E6452}.box{background:#F5ECD7;border-radius:12px;padding:12px 16px;margin:14px 0}a{color:#3E5A36}a:hover{color:#2F4529}</style>
+</head><body><main>
+<h1>What stays with you</h1>
+<p class="sub">Be's data practices, in plain words. This page is part of the app and works offline too.</p>
+<h2>What Be keeps, and where</h2>
+<ul>
+<li>Today's answer ("I'll try it" or "Not today"), your switches, and plain counts of what you tried, rested from, or settled — stored only in this device's local storage.</li>
+<li>No account, no sign-in, no cookies beyond that local storage, no advertising, no analytics, no tracking of any kind.</li>
+</ul>
+<h2>What can leave your device</h2>
+<ul>
+<li><strong>Nothing goes to anyone else.</strong> The only network code in Be is a service worker that fetches Be’s own files from wherever you installed it — same origin only, nothing third-party. Each time the app asks for one of its own files it serves the saved copy and refetches that file in the background, so the next open is current. There is no server to send your data to, and no sharing service exists.</li>
+<li>The "Let my circle see how I'm doing" switch in You is a placeholder for work that has not been built. Turning it on changes what the app says, not what it does.</li>
+<li>When sharing is built, this page will say exactly what leaves, and it will say it before anything moves.</li>
+</ul>
+<h2>The bee</h2>
+<p>A separate build of Be, served as bee.html, carries one optional link out, the bee, in two places on Today: under the finding, and the ask about today after Settle. It is closed until you tap Ask, and every message is its own ask.</p>
+<p>What leaves, once, when you tap Send: your words, and a little beside them. The request body can carry five keys, <span class="mono">{"v":1,"kind":"today","text":"your words","finding":"breath","charge":"Named this morning: calm, 2 of 5."}</span>. v is the version, kind says which ask it is, text is your words. Under the finding in Today, the id of the finding you are reading goes with your words each time. In the ask about today, under Settle, the finding and the charge you named this morning leave only when you switch each on for that one message, and the preview shows the lines that will go. No counts, no choices, no other switches, no name, no device id.</p>
+<p>Where it goes: the bee’s host, named in the preview before you send. Today that is the Mac that hosts it, on the same Wi-Fi as your phone, reached over plain http with the code you typed (or the address this build carries); if you typed a code, it travels with each message you send, as the pairing proof; on that Wi-Fi the message travels unencrypted between your phone and the Mac, so use a network you trust. The Mac keeps no copy of your words; its log holds the request line, the time and the status, and today that log sits in a temporary folder on the Mac. The Mac then passes your words to a model service over the internet, under the founder’s own account; that service’s own privacy policy, at <a href="https://www.anthropic.com/legal/privacy">https://www.anthropic.com/legal/privacy</a> (opened 2026-10-12), says what it keeps, and it is not verified by Be. The reply is shown once and is never saved on your device.</p>
+<p>The bee is a model, and it can be wrong. Its replies are checked against Be’s voice rules before they are shown; a reply that fails is not shown.</p>
+<p>The default build, app.html, has no bee and no network code at all. Nothing on this page about the bee applies to it.</p>
+<h2>What never leaves</h2>
+<p>Your words (except the ones you choose to send to the bee, in that build), your name, the time of day, your location, and any account. Be keeps none of these, so none exist to share, sell, or lose. What stays on this device: counts by day, your switches, and the charge you named today, until tomorrow. In the bee build, the bee’s address and code are kept on this device too, if you typed them; the code goes to the Mac with each message you send, as the pairing proof, and nowhere else.</p>
+<h2>Taking it with you, or being forgotten</h2>
+<ul>
+<li>You → "Take my counts with me" saves a small text file of your counts to your device.</li>
+<li>You → "Ask Be to forget everything" clears everything Be holds, at once, after one plain confirmation; in the bee build that includes the bee’s address and code, if you typed them. Removing the app does the same.</li>
+</ul>
+<h2>What Be reaches for</h2>
+<p>The app is sealed into one file — fonts and code included. In the default build the one request it makes is for its own files, from where you installed it, same origin only, as the service worker above describes: the saved copy is served, and the file is refetched in the background so the next open is current.</p>
+<div class="box"><p style="margin:0">Be offers reminders from research, plainly told. It isn't medical advice, and it never rushes you.</p></div>
+<h2>When hosting changes this</h2>
+<p>Whoever hosts Be for you may keep ordinary server logs (the address that fetched the files, and when). If a circle service is added, this page must be updated before it is switched on — the default stays no.</p>
+<p class="mono">Version 1.0.0-rc.1 · Questions: ask the person who shared Be with you.</p>
+</main></body></html>
